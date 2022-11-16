@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="action.css">
+    <title>TONxy settngs</title>
+</head>
+<body>
+    <form id="content" action="#" method="POST">
+        <h1>TONxy settings</h1>
+
+        <fieldset id="mode">
+            <label>
+                <input type="radio" name="mode" value="public">
+                <span>Use default public proxy</span>
+            </label>
+
+            <label>
+                <input type="radio" name="mode" value="private">
+                <span>
+                    Enable private proxy
+                    <small>Traffic is encrypted via https</small>
+                </span>
+            </label>
+
+            <label>
+                <input type="radio" name="mode" value="custom">
+                <span>Set custom address</span>
+            </label>
+        </fieldset>
+
+        <fieldset id="custom">
+            <input type="text" placeholder="in2.ton.org:8080" disabled required>
+            <button type="submit"></button>
+        </fieldset>
+    </form>
+
+    <strong id="saved"></strong>
+
+    <footer id="footer">
+        <a href="https://tonxy.pro" target="_blank" rel="noopener">Read more about TONxy</a>
+    </footer>
+
+    <script src="action.js"></script>
+</body>
+</html>

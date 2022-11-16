@@ -1,0 +1,252 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: block;
+  position: relative;
+
+  width: 300px;
+  max-width: 100%;
+
+  margin: 0;
+  padding: 1rem;
+
+  font: 400 16px/1.5 -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Open Sans', sans-serif;
+
+  color: #fff;
+  background-color: #232328;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#saved {
+  display: none;
+}
+
+#content {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem;
+  overflow: hidden;
+
+  color: #222;
+  background-color: #fafafa;
+
+  border-radius: 0.5rem;
+  animation: fade-up 0.5s forwards;
+}
+
+#content h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  width: 100%;
+  margin: 0 0 0.25rem;
+  padding: 0 0 0.75rem;
+
+  font-size: 1.125rem;
+  font-weight: 500;
+
+  border-bottom: solid 1px rgba(100, 100, 100, 0.125);
+}
+
+#content h1::before {
+  content: '';
+
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+
+  background-image: url('/icons/128x128.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+}
+
+#content fieldset {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.9375rem;
+
+  border: 0;
+}
+
+#content fieldset:last-child {
+  padding-top: 0.875em;
+  border-top: solid 1px rgba(100, 100, 100, 0.125);
+}
+
+#content label {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  position: relative;
+
+  margin: 0.5rem 0;
+  padding: 0.125rem 0;
+
+  cursor: pointer;
+}
+
+#content label #saved {
+  display: block;
+
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  width: 1rem;
+  height: 1rem;
+
+  border: solid 2px rgba(0, 0, 0, 0.5);
+  border-left-color: transparent;
+  border-radius: 50%;
+
+  animation: rotation 0.5s infinite linear;
+}
+
+#content label span {
+  display: block;
+}
+
+#content label small {
+  display: block;
+  color:rgba(0, 0, 0, 0.5);
+}
+
+#content input[type="text"] {
+  display: block;
+
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+
+  font: inherit;
+
+  border: solid 1px rgba(0, 0, 0, 0.625);
+  border-radius: 0.25rem;
+}
+
+#content input[type="radio"] {
+  display: block;
+  margin-right: 0.5rem;
+
+  transform: translateY(0.125rem);
+}
+
+#content input:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.125);
+}
+
+#custom button {
+  display: block;
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+
+  width: 0.625rem;
+  height: 0.625rem;
+  padding: 0;
+  opacity: 0;
+
+  border: solid 2px #08c;
+  border-left: 0;
+  border-top: 0;
+
+  background-color: transparent;
+
+  transform: rotate(-45deg);
+  transition: opacity 0.25s;
+  cursor: pointer;
+}
+
+#custom button::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+
+  width: calc(100% + 1rem);
+  height: calc(100% + 1rem);
+}
+
+#custom input:valid + button {
+  opacity: 1;
+}
+
+#footer {
+  display: block;
+  text-align: center;
+}
+
+#footer > a {
+  display: inline-flex;
+  margin: 1rem 0 0;
+  padding: 0.25rem;
+
+  font-size: 0.875rem;
+  text-decoration: none;
+
+  color: #54c6ff;
+  transition: filter 0.25s;
+}
+
+#footer > a:hover {
+  filter: brightness(90%);
+}
+
+@keyframes fade-up {
+  0% {
+    transform: translateY(0.5rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,23 @@
+{
+   "manifest_version": 3,
+   "version": "0.3.0",
+   "name": "TONxy",
+   "description": "TONxy is a simple and lightweight addon for accessing websites within the TON network.",
+   "background": {
+      "service_worker": "/service-worker.js"
+   },
+   "icons": {
+      "32": "icons/32x32.png",
+      "128": "icons/128x128.png",
+      "192": "icons/192x192.png",
+      "512": "icons/512x512.png"
+   },
+   "action": {
+      "default_icon": {
+        "32": "icons/32x32.png"
+      },
+      "default_title": "Open extension settings",
+      "default_popup": "popup/action.html"
+   },
+   "permissions": [ "proxy", "storage" ]
+}
