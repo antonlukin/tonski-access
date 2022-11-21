@@ -85,7 +85,9 @@
   border: 0;
 
   @media screen and (max-width: 479px) {
+    padding: 0.875rem;
     padding-right: 8rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -121,7 +123,13 @@
   }
 
   @media screen and (max-width: 479px) {
+    top: 0.25rem;
+    right: 0.25rem;
+
     width: 4rem;
+    height: calc(100% - 0.5rem);
+
+    font-size: 0.9375rem;
   }
 }
 

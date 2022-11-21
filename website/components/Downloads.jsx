@@ -26,7 +26,7 @@ const Downloads = () => {
           You can also set your own proxy address for maximum security.
         </p>
 
-        <p>Using an extension is preferred over a web service!</p>
+        <p>Using the extension is preferred over a web service!</p>
       </div>
     </section>
   );

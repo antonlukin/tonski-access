@@ -9,7 +9,9 @@ const Explore = ({setEntered}) => {
   const input = useRef();
 
   useEffect(() => {
-    input.current.focus();
+    if (!('ontouchstart' in window)) {
+      input.current.focus();
+    }
   }, []);
 
   const redirectPage = (value) => {
@@ -39,9 +41,13 @@ const Explore = ({setEntered}) => {
     }
 
     setRepeats(updated);
+    setEntered(true);
 
     input.current.value = result;
-    input.current.focus();
+
+    if (!('ontouchstart' in window)) {
+      input.current.focus();
+    }
   }
 
   const submitForm = (e) => {
