@@ -1,0 +1,13 @@
+@import 'variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(100% - 2rem);
+  min-height: 100vh;
+  max-width: $width-site;
+  margin: 0 auto;
+}

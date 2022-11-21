@@ -1,0 +1,79 @@
+@import 'variables.scss';
+@import 'animations.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  @media screen and (max-width: 767px) {
+    padding: 1.5rem 0;
+  }
+
+  @media screen and (max-width: 399px) {
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  margin: 0;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  background-image: $gradient-silver;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transform: translateY(-0.125rem);
+
+  cursor: default;
+
+  &::before {
+    content: '';
+
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-right: 0.5rem;
+
+    background-image: url('../assets/images/logo-cover.png');
+    background-repeat: no-repeat;
+    background-size: 32px;
+
+    transition: background-image 0.125s;
+  }
+
+  &[data-open]::before {
+    background-image: url('../assets/images/logo-open.png');
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  font-weight: 600;
+
+  a {
+    display: block;
+    position: relative;
+
+    color: $color-light;
+    border-bottom: solid 1px rgba($color-white, 0.25);
+
+    transition: border 0.25s;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+}
