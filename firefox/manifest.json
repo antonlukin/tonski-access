@@ -12,14 +12,17 @@
       }
    },
    "icons": {
-      "32": "icons/32x32.png",
-      "128": "icons/128x128.png",
-      "192": "icons/192x192.png",
-      "512": "icons/512x512.png"
+      "32": "icons/icon-32.png",
+      "64": "icons/icon-64.png",
+      "128": "icons/icon-128.png",
+      "192": "icons/icon-192.png",
+      "256": "icons/icon-256.png"
    },
    "browser_action": {
       "default_icon": {
-        "32": "icons/32x32.png"
+        "32": "icons/icon-32.png",
+        "64": "icons/icon-64.png",
+        "128": "icons/icon-128.png"
       },
       "default_title": "Open extension settings",
       "default_popup": "popup/action.html"
