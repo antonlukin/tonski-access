@@ -25,6 +25,7 @@
   position: relative;
 
   margin: 0;
+  padding-left: 2.375rem;
 
   font-size: 1.5rem;
   font-weight: 600;
@@ -37,8 +38,12 @@
 
   cursor: default;
 
-  &::before {
+  &::after, &::before {
     content: '';
+    position: absolute;
+
+    top: 50%;
+    left: 0;
 
     width: 1.875rem;
     height: 1.875rem;
@@ -48,11 +53,21 @@
     background-repeat: no-repeat;
     background-size: 32px;
 
-    transition: background-image 0.125s;
+    transform: translateY(-50%);
+    transition: opacity 0.125s;
+  }
+
+  &::after {
+    opacity: 0;
+    background-image: url('../assets/images/logo-open.png');
+  }
+
+  &[data-open]::after {
+    opacity: 1;
   }
 
   &[data-open]::before {
-    background-image: url('../assets/images/logo-open.png');
+    opacity: 0;
   }
 }
 
