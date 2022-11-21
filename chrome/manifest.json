@@ -1,8 +1,8 @@
 {
    "manifest_version": 3,
-   "version": "0.3.0",
+   "version": "0.4.0",
    "name": "TONxy",
-   "description": "TONxy is a simple and lightweight addon for accessing websites within the TON network.",
+   "description": "Get access to the private TON network",
    "background": {
       "service_worker": "/service-worker.js"
    },
