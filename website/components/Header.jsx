@@ -11,7 +11,7 @@ const Header = ({entered}) => {
 
       <nav className={styles.menu}>
         <Link href="https://t.me/tonxyton" target="_blank" rel="noopener">About</Link>
-        <Link href="https://t.me/tonxybot" target="_blank" rel="noopener">Feedback</Link>
+        <Link href="https://t.me/tonxybot" target="_blank" rel="noopener">Support</Link>
         <Link href="https://github.com/antonlukin/tonxy" target="_blank" rel="noopener">GitHub</Link>
       </nav>
     </header>
