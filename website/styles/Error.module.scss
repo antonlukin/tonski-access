@@ -1,0 +1,28 @@
+@import 'variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.extras {
+  display: block;
+
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+}
+
+.link {
+  color: $color-main;
+  border-bottom: solid 1px;
+
+  transition: border 0.25s;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
+}

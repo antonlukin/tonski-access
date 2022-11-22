@@ -7,7 +7,6 @@ html, body {
 
 html {
   box-sizing: border-box;
-  background-color: $color-dark;
 }
 
 *, *::after, *::before {
@@ -21,7 +20,8 @@ body {
   font: 400 16px/1.5 'Mulish', sans-serif;
 
   color: $color-light;
-  background: $gradient-purple;
+  background-color: $color-dark;
+  background-image: $gradient-purple;
 }
 
 a {

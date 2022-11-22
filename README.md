@@ -1,57 +1,53 @@
 # TONxy
-
 Use TONxy web service or browser extension to proxy your traffic to the TON private network.
 
-## nginx config
-```nginx
-server {
-    listen 443 ssl http2;
-    server_name  ~^(?<subdomain>.+)\.tonxy\.pro$;
 
-    charset utf-8;
+## Website
+Website is an application written in Next.js. 
+The input form redirects requests from domains on the TON network to their mirrors on the public Internet.
 
-    ssl_certificate /etc/letsencrypt/live/tonxy.pro/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/tonxy.pro/privkey.pem;
+### Development
+The instruction assumes that you have Yarn and pm2 installed globally.
 
-    access_log off;
-    error_log off;
+1. Clone this repo from GitHub
+2. Navigate to `website` directory
+3. Install required modules with `yarn`
+4. Start application with `yarn dev`
+5. Use `yarn build` command to build
+6. Start on port 8000 with `pm2 start yarn --name tonxy -- start`
+7. Update `package.json` to change port
 
-    set $skip_cache 0;
 
-    if ($http_cookie ~* "nginx_no_cache|PHPSESSID") {
-        set $skip_cache 1;
-    }
+## Extensions
+The extension solves one single task - redirecting 
+traffic for the first level domains `.ton` and `.adnl` to the proxied address. 
+The user can choose which proxy to use:
+- Public proxy: `http://in1.ton.org:8080`
+- Secure proxy: `https://in.tonxy.pro:8443`
+- Any custom address including local proxy
 
-    if ($request_uri ~* "/ping|/metrics|/nginx_status|/admin|/login|/feed|sitemap(_index)?.xml") {
-        set $skip_cache 1;
-    }
+How a private proxy works, read below.
 
-    location / {
-        subs_filter http://(\w*).ton http://$1.tonxy.pro ir;
-        subs_filter_types text/css text/javascript application/json application/javascript;
+### Development
+1. Clone this repo from GitHub
+2. Load an unpacked extension to [Google Chrome](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) or [Mozilla Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing) browser.
+3. Update code and debug extension
 
-        proxy_set_header Host "${subdomain}.ton";
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Accept-Encoding "";
 
-        proxy_ignore_headers Expires;
-        proxy_ignore_headers Cache-Control;
-        proxy_set_header Cookie "";
+## Secure Proxy
+This proxy that encrypts the traffic between client and server, preventing MIT-type attacks on this section of the traffic exchange. At the moment, the proxy uses the public node `http://in1.ton.org:8080`. In the future, traffic will be proxied on the same server where nginx is installed
 
-        proxy_pass http://in1.ton.org:8080;
+**The server does not collect any user data.**
 
-        proxy_cache tonxy;
-        proxy_cache_convert_head off;
-        proxy_cache_methods GET HEAD;
-        proxy_cache_valid 499 502 503 504 10s;
-        proxy_cache_valid any 10m;
-        proxy_cache_key $request_method$host$uri$is_args$args;
 
-        proxy_no_cache $http_pragma $http_authorization $skip_cache;
-        proxy_cache_bypass $http_pragma $http_authorization $skip_cache;
+## TON sites mirror
+Mirroring traffic from the internal TON network to the external Internet using nginx. 
+All domains like `example.ton` have aliases like `example.tonxy.pro` available on the public Internet.
 
-        add_header X-Proxy-Cache $upstream_cache_status;
-    }
-}
-```
+At the moment, the proxy uses the public node `http://in1.ton.org:8080`. 
+Proxied `GET` and `HEAD` requests are cached for 10 minutes. All cookies are deleted.
+The server also tries to replace all links like `http://*.ton` with `https://*.tonxy.pro` in order to allow the user to navigate between pages and sites.
+
+**The server does not collect any user data.**
+
+Take a look at the actual `/nginx.conf` to better understand the mirroring process.

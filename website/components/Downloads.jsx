@@ -22,8 +22,8 @@ const Downloads = () => {
 
       <div className={styles.summary}>
         <p>
-          Download the browser extension to access the private TON network with a public or encrypted proxy of your choice.
-          You can also set your own proxy address for maximum security.
+          Download a browser extension to access the private TON network with a public or encrypted proxy of your choice.
+          You can also set your own proxy address to ensure maximum security.
         </p>
 
         <p>Using the extension is preferred over a web service!</p>
