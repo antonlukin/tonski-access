@@ -11,12 +11,12 @@ const Downloads = () => {
       <div className={styles.fieldset}>
         <figure className={styles.button}>
           <IconChrome />
-          <Link href="https://chrome.google.com/webstore/detail/tonxy/aemgbcgjfjeonbcipemkkocogjmkafeg" target="_blank" rel="noopener">Add to Chrome</Link>
+          <Link href="https://chrome.google.com/webstore/detail/aemgbcgjfjeonbcipemkkocogjmkafeg" target="_blank" rel="noopener">Add to Chrome</Link>
         </figure>
 
         <figure className={styles.button}>
           <IconFirefox />
-          <Link href="https://addons.mozilla.org/firefox/addon/tonxy/" target="_blank" rel="noopener">Add to Firefox</Link>
+          <Link href="https://addons.mozilla.org/ru/firefox/addon/tonski/" target="_blank" rel="noopener">Add to Firefox</Link>
         </figure>
       </div>
 

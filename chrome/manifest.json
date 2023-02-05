@@ -1,7 +1,7 @@
 {
    "manifest_version": 3,
-   "version": "0.4.0",
-   "name": "TONxy",
+   "version": "0.5.0",
+   "name": "TON.SKI",
    "description": "Get access to the private TON network",
    "background": {
       "service_worker": "/service-worker.js"
