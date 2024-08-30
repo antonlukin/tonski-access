@@ -2,12 +2,12 @@
   const options = {};
 
   // Set default settings values
-  options.custom = 'in2.ton.org:8080';
+  options.custom = 'in1.ton.ski:8080';
   options.mode = 'public';
 
   const getProxyLink = () => {
     if (options.mode === 'public') {
-      return 'PROXY in1.ton.org:8080';
+      return 'PROXY in1.ton.ski:8080';
     }
 
     if (options.mode === 'private') {
